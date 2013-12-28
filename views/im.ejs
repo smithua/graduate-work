@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <h1><%= title %></h1>
+
+    <%if (error == 'dialogs_not_found') { %>
+        <p>Dialogs not found.</p>
+        <p>Please, <a href="/dialogs/new">create new dialog</a>.</p>
+    <% } %>
+    <% if (error == 'int_not_found') { %>
+        <p>Interlocutor is not found.</p>
+    <% } %>
+</body>
+<% if (locals.io) { %>
+    <script src="http://<%=io%>:3001/socket.io/socket.io.js"></script>
+<% }%>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <h1><%= title %></h1>
+    <%if (sendFromLogin) { %>
+        <p>Error login!</p>
+    <% } %>
+    <form method="post">
+        <input type="text" placeholder="login" name="login" />
+        <input type="password" placeholder="password" name="password" />
+        <input type="submit" value="<%= title %>" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <%if (user_name !== undefined) { %>
+        <p>Hello, <%= user_name %>!</p>
+        <a href="/dialogs">Dialogs</a>
+    <% } else { %>
+        <a href="/users/login">Login</a>
+        <a href="/users/register">Register</a>
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h1><%= title %></h1>
+
+<%if (users.length) { %>
+<ol>
+    <% users.forEach(function(user){ %>
+    <li><a href="/dialogs/<%= user._id %>"><%= user.user_name %></a></li>
+    <% }) %>
+</ol>
+<% } %>
+</body>
+</html>
