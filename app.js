@@ -42,8 +42,27 @@ app.get('/dialogs/new', im.createNew);
 app.get('/dialogs/:id', im.buildsDialogs);
 
 var io = require('socket.io').listen((app.get('port') + 1));
+
+io.configure( function() {
+    io.enable('browser client minification');  // send minified client
+    io.enable('browser client etag');          // apply etag caching logic based on version number
+    io.enable('browser client gzip');          // gzip the file
+    io.set('log level', 1);                    // reduce logging
+    io.set('transports', [                     // enable all transports (optional if you want flashsocket)
+        'websocket'
+        , 'flashsocket'
+        , 'htmlfile'
+        , 'xhr-polling'
+        , 'jsonp-polling'
+    ]);
+});
+
 io.sockets.on('connection', function (socket) {
-    console.log(socket);
+    im.parentSocket = io.sockets;
+
+    socket.on('events', function(data) {
+        console.log(data);
+    });
 });
 
 http.createServer(app).listen(app.get('port'), function(){

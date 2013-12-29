@@ -1,12 +1,14 @@
 var mongo = require('./../node_modules/monk')('localhost/fesenko');
 var usersDb = mongo.get('users');
 var dialogsDb = mongo.get('dialogs');
-
+var messagesDb = mongo.get('messages');
 
 IM = {
+    title: 'Dialogs',
     express: {},
     username: undefined,
     user_id: undefined,
+    parentSocket: undefined,
     init: function (request, response) {
         this.express = {request: request, response: response};
         if (this.express.request.session.authorized && this.express.request.session.username) {
@@ -24,17 +26,33 @@ IM = {
         dialogsDb.find({$or: [{first_user: dialogsDb.id(this.user_id)}, {second_user: dialogsDb.id(this.user_id)}]}, function(err, dialogs) {
             if (err) throw err;
 
-            IM.express.response.render('im', {title: 'Dialogs!', error: 'dialogs_not_found'});
+            IM.express.response.render('im', {title: IM.title, io: require('os').hostname(), error: 'dialogs_not_found'});
         });
     },
     getDialog: function(user_id) {
-        usersDb.find({_id: usersDb.id(user_id)}, function(err, int) {
+        dialogsDb.find({_id: dialogsDb.id(user_id)}, function(err, int) {
             if (err) throw err;
             if (int.length) {
-                IM.express.response.render('im', {title: 'Dialogs', error: null, io: require('os').hostname()});
-                //request.headers
+                messagesDb.find({dialog_id: dialogsDb.id(int[0]._id)}, function(err, messages) {
+                    if (err) throw err;
+                    if (messages.length) {
+
+                    } else {
+                        IM.express.response.render('im', {
+                            title: 'Dialogs',
+                            io: require('os').hostname(),
+                            error: 'dialog',
+                            dialog: int[0],
+                            messages: 0
+                        });
+                    }
+                });
             } else {
-                IM.express.response.render('im', {title: 'Dialogs!', error: 'int_not_found'});
+                IM.express.response.render('im', {
+                    title: IM.title,
+                    io: require('os').hostname(),
+                    error: 'dialog'
+                });
             }
         });
     }
@@ -43,7 +61,7 @@ IM = {
 exports.buildsDialogs = function(request, response) {
     if (request.session.authorized) {
         IM.init(request, response);
-        //response.render('im', {title: 'Dialogs!', error: null});
+        //response.render('im', {title: IM.title, error: null});
     } else {
         response.redirect('/users/login');
         response.end();
@@ -51,12 +69,9 @@ exports.buildsDialogs = function(request, response) {
 };
 
 exports.createNew = function(request, response) {
-    usersDb.find({_id: {$nin: [usersDb.id(request.session.user_id)]}}, function(err, users) {
+    dialogsDb.insert({}, function (err, dialog) {
         if (err) throw err;
-        if (users.length) {
-            response.render('selectnewuser', {title: 'Select User', users: users});
-        } else {
-            response.render('selectnewuser', {title: 'Select User', users: null});
-        }
+        response.redirect('/dialogs/' + dialog._id);
+        response.end();
     });
 };

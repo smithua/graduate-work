@@ -14,8 +14,28 @@
     <% if (error == 'int_not_found') { %>
         <p>Interlocutor is not found.</p>
     <% } %>
+
+    <%if (error == 'all') { %>
+
+    <% } %>
+
+    <%if (error == 'dialog') { %>
+        <div id="dialog" data-dialog="<%=dialog._id%>">
+            <div class="wrap3">
+                <%if (messages.length) { %>
+
+                <% } %>
+            </div>
+        </div>
+        <div id="write_wrapp">
+            <textarea id="im_textarea" class="im_textarea"></textarea>
+            <button class="button" onclick="IM.send(this);">Отправить</button>
+        </div>
+    <% } %>
 </body>
-<% if (locals.io) { %>
-    <script src="http://<%=io%>:3001/socket.io/socket.io.js"></script>
-<% }%>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://<%=io%>:3001/socket.io/socket.io.js"></script>
+<script src="/javascripts/node.js"></script>
+<script src="/javascripts/im.js"></script>
+<script>Node.init('<%=io%>'); IM.connect();</script>
 </html>
