@@ -3,6 +3,7 @@
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/css/style.css' />
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 </head>
 <body>
     <h1><%= title %></h1>
@@ -24,9 +25,13 @@
             <div class="dialog_wrap">
                 <div id="dialog" class="dialog" data-dialog="<%=dialog._id%>">
                     <div class="wrap3">
-                        <%if (messages.length) { %>
-
-                        <% } %>
+                        <div class="wrap4">
+                            <%if (messages) { %>
+                                <%messages.forEach(function(message) {  %>
+                                    <div id="message_<%=message._id%>"><%=message.text%></div>
+                                <% }); %>
+                            <% } %>
+                        </div>
                     </div>
                 </div>
                 <div id="write_wrapp" class="write_wrapp">
@@ -39,8 +44,17 @@
             </div>
         </div>
     <% } %>
+
+    <%if (error == 'dialogs') { %>
+        <div id="all_dialogs">
+            <%if (Object.keys(dialogs).length) { %>
+                <%dialogs.forEach(function(dialog) {  %>
+                    <div id="dialog_<%=dialog._id%>"><%=dialog.timestamp%></div>
+                <% }); %>
+            <% } %>
+        </div>
+    <% } %>
 </body>
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 <script src="/javascripts/node.js"></script>
 <script src="/javascripts/im.js"></script>

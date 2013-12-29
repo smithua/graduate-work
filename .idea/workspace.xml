@@ -4,10 +4,10 @@
     <list default="true" id="09b4ad6f-9cad-40cf-b285-858899a41c4f" name="Default" comment="" />
     <ignored path="Fesenko.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/im.js" changelist="09b4ad6f-9cad-40cf-b285-858899a41c4f" time="1388315490868" ignored="false" />
+    <file path="/im.js" changelist="09b4ad6f-9cad-40cf-b285-858899a41c4f" time="1388317861465" ignored="false" />
     <file path="/app.js" changelist="09b4ad6f-9cad-40cf-b285-858899a41c4f" time="1388314270207" ignored="false" />
     <file path="/a.dummy" changelist="09b4ad6f-9cad-40cf-b285-858899a41c4f" time="1388309243316" ignored="false" />
-    <file path="/im.ejs" changelist="09b4ad6f-9cad-40cf-b285-858899a41c4f" time="1388310061294" ignored="false" />
+    <file path="/im.ejs" changelist="09b4ad6f-9cad-40cf-b285-858899a41c4f" time="1388317787753" ignored="false" />
     <file path="/package.json" changelist="09b4ad6f-9cad-40cf-b285-858899a41c4f" time="1388311813025" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,17 +31,19 @@
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="32" selection-start="3505" selection-end="3505" vertical-scroll-proportion="-15.25">
+            <state line="100" column="46" selection-start="2873" selection-end="2873" vertical-scroll-proportion="-17.5">
               <folding>
                 <element signature="e#642#736#0" expanded="true" />
                 <element signature="e#773#826#0" expanded="true" />
                 <element signature="e#1617#1690#0" expanded="true" />
-                <element signature="e#1765#2823#0" expanded="true" />
                 <element signature="e#1884#2819#0" expanded="true" />
                 <element signature="e#2452#2785#0" expanded="true" />
                 <element signature="e#2561#2773#0" expanded="true" />
                 <element signature="e#2984#3158#0" expanded="true" />
                 <element signature="e#3045#3150#0" expanded="true" />
+                <element signature="e#3202#3629#0" expanded="true" />
+                <element signature="e#3263#3621#0" expanded="true" />
+                <element signature="e#3426#3595#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,47 +52,53 @@
       <file leaf-file-name="im.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/im.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="17" selection-start="333" selection-end="333" vertical-scroll-proportion="27.678572">
+            <state line="101" column="33" selection-start="3756" selection-end="3756" vertical-scroll-proportion="-11.178572">
               <folding>
+                <element signature="e#199#3628#0" expanded="true" />
                 <element signature="e#373#695#0" expanded="true" />
                 <element signature="e#734#1065#0" expanded="true" />
                 <element signature="e#830#1057#0" expanded="true" />
-                <element signature="e#1096#1413#0" expanded="true" />
-                <element signature="e#1238#1405#0" expanded="true" />
-                <element signature="e#1444#2442#0" expanded="true" />
-                <element signature="e#1514#2434#0" expanded="true" />
-                <element signature="e#1673#2147#0" expanded="true" />
-                <element signature="e#1845#2105#0" expanded="true" />
-                <element signature="e#2220#2362#0" expanded="true" />
-                <element signature="e#2475#2975#0" expanded="true" />
-                <element signature="e#2634#2967#0" expanded="true" />
-                <element signature="e#2734#2955#0" expanded="true" />
-                <element signature="e#2820#2939#0" expanded="true" />
-                <element signature="e#3311#3508#0" expanded="true" />
+                <element signature="e#1096#1738#0" expanded="true" />
+                <element signature="e#1148#1730#0" expanded="true" />
+                <element signature="e#1265#1446#0" expanded="true" />
+                <element signature="e#1519#1704#0" expanded="true" />
+                <element signature="e#1769#3093#0" expanded="true" />
+                <element signature="e#1839#3085#0" expanded="true" />
+                <element signature="e#1998#2798#0" expanded="true" />
+                <element signature="e#2140#2407#0" expanded="true" />
+                <element signature="e#2496#2756#0" expanded="true" />
+                <element signature="e#2871#3013#0" expanded="true" />
+                <element signature="e#3285#3618#0" expanded="true" />
+                <element signature="e#3385#3606#0" expanded="true" />
+                <element signature="e#3471#3590#0" expanded="true" />
+                <element signature="e#3897#4094#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="im.ejs" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="im.ejs" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/im.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="48" selection-start="636" selection-end="636" vertical-scroll-proportion="-14.571428">
+            <state line="28" column="34" selection-start="841" selection-end="841" vertical-scroll-proportion="0.7605634">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="im.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="im.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/im.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="29" selection-start="762" selection-end="762" vertical-scroll-proportion="0.7183099">
+            <state line="24" column="93" selection-start="762" selection-end="826" vertical-scroll-proportion="-14.571428">
               <folding>
                 <element signature="e#70#141#0" expanded="true" />
                 <element signature="e#172#325#0" expanded="true" />
                 <element signature="e#222#317#0" expanded="true" />
                 <element signature="e#350#694#0" expanded="true" />
-                <element signature="e#779#2012#0" expanded="true" />
+                <element signature="e#846#2079#0" expanded="true" />
+                <element signature="e#877#976#0" expanded="true" />
+                <element signature="e#1018#2002#0" expanded="true" />
+                <element signature="e#2039#2077#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -117,11 +125,11 @@
         <option value="$PROJECT_DIR$/views/selectnewuser.ejs" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/public/javascripts/node.js" />
-        <option value="$PROJECT_DIR$/views/im.ejs" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/routes/im.js" />
         <option value="$PROJECT_DIR$/public/javascripts/im.js" />
+        <option value="$PROJECT_DIR$/routes/im.js" />
+        <option value="$PROJECT_DIR$/views/im.ejs" />
       </list>
     </option>
   </component>
@@ -497,53 +505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/im.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="48" selection-start="636" selection-end="636" vertical-scroll-proportion="-14.571428">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="32" selection-start="3505" selection-end="3505" vertical-scroll-proportion="-15.25">
-          <folding>
-            <element signature="e#642#736#0" expanded="true" />
-            <element signature="e#773#826#0" expanded="true" />
-            <element signature="e#1617#1690#0" expanded="true" />
-            <element signature="e#1765#2823#0" expanded="true" />
-            <element signature="e#1884#2819#0" expanded="true" />
-            <element signature="e#2452#2785#0" expanded="true" />
-            <element signature="e#2561#2773#0" expanded="true" />
-            <element signature="e#2984#3158#0" expanded="true" />
-            <element signature="e#3045#3150#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/im.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="17" selection-start="333" selection-end="333" vertical-scroll-proportion="27.678572">
-          <folding>
-            <element signature="e#373#695#0" expanded="true" />
-            <element signature="e#734#1065#0" expanded="true" />
-            <element signature="e#830#1057#0" expanded="true" />
-            <element signature="e#1096#1413#0" expanded="true" />
-            <element signature="e#1238#1405#0" expanded="true" />
-            <element signature="e#1444#2442#0" expanded="true" />
-            <element signature="e#1514#2434#0" expanded="true" />
-            <element signature="e#1673#2147#0" expanded="true" />
-            <element signature="e#1845#2105#0" expanded="true" />
-            <element signature="e#2220#2362#0" expanded="true" />
-            <element signature="e#2475#2975#0" expanded="true" />
-            <element signature="e#2634#2967#0" expanded="true" />
-            <element signature="e#2734#2955#0" expanded="true" />
-            <element signature="e#2820#2939#0" expanded="true" />
-            <element signature="e#3311#3508#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/node.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="37" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0">
@@ -556,14 +517,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/im.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="29" selection-start="762" selection-end="762" vertical-scroll-proportion="0.7183099">
+        <state line="24" column="93" selection-start="762" selection-end="826" vertical-scroll-proportion="-14.571428">
           <folding>
             <element signature="e#70#141#0" expanded="true" />
             <element signature="e#172#325#0" expanded="true" />
             <element signature="e#222#317#0" expanded="true" />
             <element signature="e#350#694#0" expanded="true" />
-            <element signature="e#779#2012#0" expanded="true" />
+            <element signature="e#846#2079#0" expanded="true" />
+            <element signature="e#877#976#0" expanded="true" />
+            <element signature="e#1018#2002#0" expanded="true" />
+            <element signature="e#2039#2077#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="46" selection-start="2873" selection-end="2873" vertical-scroll-proportion="-17.5">
+          <folding>
+            <element signature="e#642#736#0" expanded="true" />
+            <element signature="e#773#826#0" expanded="true" />
+            <element signature="e#1617#1690#0" expanded="true" />
+            <element signature="e#1884#2819#0" expanded="true" />
+            <element signature="e#2452#2785#0" expanded="true" />
+            <element signature="e#2561#2773#0" expanded="true" />
+            <element signature="e#2984#3158#0" expanded="true" />
+            <element signature="e#3045#3150#0" expanded="true" />
+            <element signature="e#3202#3629#0" expanded="true" />
+            <element signature="e#3263#3621#0" expanded="true" />
+            <element signature="e#3426#3595#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/im.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="33" selection-start="3756" selection-end="3756" vertical-scroll-proportion="-11.178572">
+          <folding>
+            <element signature="e#199#3628#0" expanded="true" />
+            <element signature="e#373#695#0" expanded="true" />
+            <element signature="e#734#1065#0" expanded="true" />
+            <element signature="e#830#1057#0" expanded="true" />
+            <element signature="e#1096#1738#0" expanded="true" />
+            <element signature="e#1148#1730#0" expanded="true" />
+            <element signature="e#1265#1446#0" expanded="true" />
+            <element signature="e#1519#1704#0" expanded="true" />
+            <element signature="e#1769#3093#0" expanded="true" />
+            <element signature="e#1839#3085#0" expanded="true" />
+            <element signature="e#1998#2798#0" expanded="true" />
+            <element signature="e#2140#2407#0" expanded="true" />
+            <element signature="e#2496#2756#0" expanded="true" />
+            <element signature="e#2871#3013#0" expanded="true" />
+            <element signature="e#3285#3618#0" expanded="true" />
+            <element signature="e#3385#3606#0" expanded="true" />
+            <element signature="e#3471#3590#0" expanded="true" />
+            <element signature="e#3897#4094#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/im.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="34" selection-start="841" selection-end="841" vertical-scroll-proportion="0.7605634">
+          <folding />
         </state>
       </provider>
     </entry>

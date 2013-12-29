@@ -31,10 +31,23 @@ exports.IM = IM = {
         });
     },
     buildDialogs: function() {
-        dialogsDb.find({$or: [{first_user: dialogsDb.id(this.user_id)}, {second_user: dialogsDb.id(this.user_id)}]}, function(err, dialogs) {
+        dialogsDb.find({}, function(err, dialogs) {
             if (err) throw err;
-
-            IM.express.response.render('im', {title: IM.title, io: require('os').hostname(), error: 'dialogs_not_found'});
+            if (dialogs.length) {
+                IM.express.response.render('im', {
+                    title: IM.title,
+                    io: require('os').hostname(),
+                    error: 'dialogs',
+                    dialogs: dialogs
+                });
+            } else {
+                IM.express.response.render('im', {
+                    title: IM.title,
+                    io: require('os').hostname(),
+                    error: 'dialogs_not_found',
+                    dialogs: 0
+                });
+            }
         });
     },
     getDialog: function(_id) {
@@ -44,7 +57,13 @@ exports.IM = IM = {
                 messagesDb.find({dialog_id: dialogsDb.id(int[0]._id)}, function(err, messages) {
                     if (err) throw err;
                     if (messages.length) {
-
+                        IM.express.response.render('im', {
+                            title: 'Dialogs',
+                            io: require('os').hostname(),
+                            error: 'dialog',
+                            dialog: int[0],
+                            messages: messages
+                        });
                     } else {
                         IM.express.response.render('im', {
                             title: 'Dialogs',
@@ -81,7 +100,6 @@ exports.IM = IM = {
 exports.buildsDialogs = function(request, response) {
     if (request.session.authorized) {
         IM.init(request, response);
-        //response.render('im', {title: IM.title, error: null});
     } else {
         response.redirect('/users/login');
         response.end();

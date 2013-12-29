@@ -22,7 +22,7 @@ IM = {
         }
     },
     addMessage: function (message) {
-        console.log(message);
+        $('.dialog').append('<div id="message_' + message._id + '">' + message.text + '</div>');
     }
 };
 
