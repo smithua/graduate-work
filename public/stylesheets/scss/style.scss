@@ -60,11 +60,12 @@ textarea {
     font-weight: 300;
     display: table-cell;
 
-    width: calc(100% - 300px);
+    width: 60%;
     height: 45px;
     border: 1px solid $border-color;
     border-radius: 2px;
   }
+
   .button {
     display: table-cell;
     vertical-align: bottom;
