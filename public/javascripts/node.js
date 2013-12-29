@@ -3,7 +3,7 @@ Node = {
     urlIO: null,
     connect: function() {
         try {
-            this.socket = io.connect(this.urlIO + ':3001', {
+            this.socket = io.connect(this.urlIO + ':3000', {
                 'connect timeout': 500,
                 'reconnect': true,
                 'reconnection delay': 500,
