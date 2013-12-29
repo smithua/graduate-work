@@ -100,10 +100,9 @@ io.configure( function() {
 
 io.sockets.on('connection', function (socket) {
     im.IM.parentSocket = io.sockets;
+    im.IM.setConnection(socket);
     socket.on('events', function(post) {
-        socket.handshake.getSession(function(err, session) {
-            post['user'] = session.name || 'guest';
-            im.IM[post.fn](post.data);
-        });
+
+        im.IM[post.fn](post.data);
     });
 });
