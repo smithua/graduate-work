@@ -1,4 +1,5 @@
 .idea
+/.idea
 
 lib-cov
 *.seed
@@ -15,3 +16,6 @@ results
 
 npm-debug.log
 node_modules
+node_modules/*
+bson.node
+package.json
