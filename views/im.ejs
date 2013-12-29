@@ -34,8 +34,8 @@
     <% } %>
 </body>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="http://<%=io%>:3001/socket.io/socket.io.js"></script>
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
 <script src="/javascripts/node.js"></script>
 <script src="/javascripts/im.js"></script>
-<script>Node.init('<%=io%>'); IM.connect();</script>
+<script>Node.init('http://localhost'); IM.connect();</script>
 </html>

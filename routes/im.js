@@ -3,18 +3,20 @@ var usersDb = mongo.get('users');
 var dialogsDb = mongo.get('dialogs');
 var messagesDb = mongo.get('messages');
 
-IM = {
+exports.IM = IM = {
     title: 'Dialogs',
     express: {},
     username: undefined,
     user_id: undefined,
     parentSocket: undefined,
+    connectedUsers: {},
     init: function (request, response) {
         this.express = {request: request, response: response};
         if (this.express.request.session.authorized && this.express.request.session.username) {
             this.user_id = this.express.request.session.user_id;
             this.username = this.express.request.session.username;
 
+            //this.connectedUsers[]
             if (this.express.request.params.id) {
                 this.getDialog(this.express.request.params.id);
             } else {
@@ -55,6 +57,11 @@ IM = {
                 });
             }
         });
+    },
+    addMessage: function(post) {
+        messagesDb.insert({text: post.messages, timestamp: new Date().getTime(), dialog_id: dialogsDb.id(post._id)}, function(err, inst) {
+
+        });
     }
 };
 
@@ -69,7 +76,7 @@ exports.buildsDialogs = function(request, response) {
 };
 
 exports.createNew = function(request, response) {
-    dialogsDb.insert({}, function (err, dialog) {
+    dialogsDb.insert({timestamp: new Date().getTime()}, function (err, dialog) {
         if (err) throw err;
         response.redirect('/dialogs/' + dialog._id);
         response.end();
