@@ -10,9 +10,15 @@ exports.IM = IM = {
     socket: undefined,
     connectedUsers: {},
     inDialog: [],
+    userInfo: {},
     init: function (request, response) {
         this.express = {request: request, response: response};
         if (this.express.request.session.authorized ) {
+            this.userInfo[request.session._sessionid] = {
+                user_name: request.session.username,
+                user_id: request.session.user_id
+            };
+
             if (this.express.request.params.id) {
                 this.getDialog(request);
             } else {
@@ -51,8 +57,38 @@ exports.IM = IM = {
         });
     },
     getDialog: function(request) {
+        Array.prototype.contains = function(k, callback) {
+            var self = this;
+            return (function check(i) {
+                if (i >= self.length) {
+                    return callback(false);
+                }
+
+                if (self[i] === k) {
+                    return callback(true);
+                }
+
+                return process.nextTick(check.bind(null, i+1));
+            }(0));
+        }
+
+        this.inDialog.contains(request.session._sessionid, function(found) {
+            if (!found) {
+                IM.inDialog.push(request.session._sessionid);
+            }
+        });
+        var usersOnline = [];
+        IM.inDialog.forEach(function(row, index) {
+            IM.connectedUsers[row].forEach(function(sock, index) {
+                //IM.parentSocket.socket(sock).emit('events', {fn: 'refreshOnline', message: IM.userInfo[row]});
+                usersOnline.push(IM.userInfo[row]);
+            });
+        });
+
         dialogsDb.find({_id: dialogsDb.id(request.params.id)}, function(err, int) {
             if (err) throw err;
+            console.log(IM.inDialog);
+            console.log(IM.connectedUsers);
             if (int.length) {
                 messagesDb.find({dialog_id: dialogsDb.id(int[0]._id)}, function(err, messages) {
                     if (err) throw err;
@@ -81,34 +117,6 @@ exports.IM = IM = {
                     error: 'dialog'
                 });
             }
-        });
-
-        Array.prototype.contains = function(k, callback) {
-            var self = this;
-            return (function check(i) {
-                if (i >= self.length) {
-                    return callback(false);
-                }
-
-                if (self[i] === k) {
-                    return callback(true);
-                }
-
-                return process.nextTick(check.bind(null, i+1));
-            }(0));
-        }
-
-        this.inDialog.contains(request.session._sessionid, function(found) {
-            if (!found) {
-                IM.inDialog.push(request.session._sessionid);
-            }
-        });
-
-        IM.inDialog.forEach(function(row, index) {
-            IM.connectedUsers[row].forEach(function(sock, index) {
-                //IM.parentSocket.socket(sock).emit('events', {fn: 'refreshOnline', message: inst});
-                console.log(sock);
-            });
         });
     },
     addMessage: function(post) {

@@ -24,6 +24,11 @@ IM = {
     addMessage: function (message) {
         $('.im_textarea').val('');
         $('.dialog').append('<div id="message_' + message._id + '">' + message.text + '</div>');
+    },
+    refreshOnline: function(data) {
+        if (!$('#user_' + data.user_id).length) {
+            $('.user_list').append('<li id="user_' + data.user_id + '" class="user_list_block">' + data.user_name + '</li>');
+        }
     }
 };
 

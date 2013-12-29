@@ -40,10 +40,7 @@
                 </div>
             </div>
             <div class="user_list_wrap">
-                <ul class="user_list">
-                    <li class="user_list_block">user</li>
-                    <li class="user_list_block">user2</li>
-                </ul>
+                <ul class="user_list"></ul>
             </div>
         </div>
     <% } %>
@@ -55,6 +52,7 @@
                     <div id="dialog_<%=dialog._id%>"><a href="/dialogs/<%=dialog._id%>"><%=new Date(dialog.timestamp * 1000)%></a></div>
                 <% }); %>
             <% } %>
+            <p>Please, <a href="/dialogs/new">create new dialog</a>.</p>
         </div>
     <% } %>
 </body>

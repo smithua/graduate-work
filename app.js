@@ -118,7 +118,6 @@ io.sockets.on('connection', function (socket) {
                 });
             }
 
-            console.log(im.IM.inDialog);
             if (im.IM.inDialog[session._sessionid] !== undefined) {
                 delete im.IM.inDialog[session._sessionid];
             }
