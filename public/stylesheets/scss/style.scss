@@ -1,8 +1,16 @@
 @import url(../css/normalize.css);
 
+/* fonts */
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+
 *, *:after, *:before {
   box-sizing: border-box;
 }
+
+/* veriables */
+
+$body-width: 980px;
+$border-color: #ccc;
 
 body {
   font-family: Helvetica, sans-serif;
@@ -13,17 +21,59 @@ body {
 
 a {
   color: #00B7FF;
+  text-decoration: none;
 }
 
-#dialog {
-  width: 746px;
-  border-right: 1px solid #ccc;
+h1 {
+  font-family: Lato, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
-#im_textarea {
-  width: 574px;
-  height: 45px;
-  resize: none;
-  border: 1px solid #cacaca;
-  border-radius: 2px;
+button {
+  border: 0;
+}
+
+textarea {
+  resize: vertical;
+  outline: none;
+}
+
+.wrapper {
+  background-color: #F0F0F0;
+  margin: 0 auto;
+  overflow: hidden;
+  width: $body-width;
+}
+
+.dialog {
+  margin: 0 auto;
+  border-right: 1px solid $border-color;
+}
+
+.write_wrapp {
+  display: table;
+  width: inherit;
+
+  .im_textarea {
+    font-family: Lato, sans-serif;
+    font-weight: 300;
+    display: table-cell;
+
+    width: calc(100% - 300px);
+    height: 45px;
+    border: 1px solid $border-color;
+    border-radius: 2px;
+  }
+  .button {
+    display: table-cell;
+    vertical-align: bottom;
+    color: #2D78A0;
+    background-color: #F0F0F0;
+
+
+    &:hover {
+      color: #87AA1E;
+    }
+  }
 }
