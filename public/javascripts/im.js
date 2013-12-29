@@ -7,7 +7,9 @@ IM = {
     },
     listenEvents: function() {
         this.socket.on('events', function(data) {
-            console.log(data);
+            if (data.fn) {
+                IM[data.fn](data.message);
+            }
         });
     },
     send: function(el) {
@@ -18,6 +20,9 @@ IM = {
         } else {
             console.error('empty textarea');
         }
+    },
+    addMessage: function (message) {
+        console.log(message);
     }
 };
 

@@ -102,7 +102,21 @@ io.sockets.on('connection', function (socket) {
     im.IM.parentSocket = io.sockets;
     im.IM.setConnection(socket);
     socket.on('events', function(post) {
+        socket.handshake.getSession(function(err, session) {
+            post['data']['user_id'] = session.user_id;
+            im.IM[post.fn](post.data);
+        });
+    });
 
-        im.IM[post.fn](post.data);
+    socket.on('disconnect', function () {
+        socket.handshake.getSession(function(err, session) {
+            if (im.IM.connectedUsers[session._sessionid] !== undefined) {
+                im.IM.connectedUsers[session._sessionid].forEach(function(sock, index) {
+                    if (sock == socket.id) {
+                        im.IM.connectedUsers[session._sessionid].splice(index, 1);
+                    }
+                });
+            }
+        });
     });
 });
