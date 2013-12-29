@@ -5,6 +5,7 @@
 
 *, *:after, *:before {
   box-sizing: border-box;
+  outline: none;
 }
 
 /* veriables */
@@ -44,37 +45,58 @@ textarea {
   margin: 0 auto;
   overflow: hidden;
   width: $body-width;
-}
-
-.dialog {
-  margin: 0 auto;
-  border-right: 1px solid $border-color;
-}
-
-.write_wrapp {
   display: table;
-  width: inherit;
 
-  .im_textarea {
-    font-family: Lato, sans-serif;
-    font-weight: 300;
+
+  .user_list_wrap {
     display: table-cell;
 
-    width: 60%;
-    height: 45px;
-    border: 1px solid $border-color;
-    border-radius: 2px;
+    .user_list {
+      list-style-type: none;
+    }
+
+    .user_list_block {
+      padding: 10px;
+    }
   }
 
-  .button {
+  .dialog_wrap {
     display: table-cell;
-    vertical-align: bottom;
-    color: #2D78A0;
-    background-color: #F0F0F0;
+    width: 700px;
+
+    .dialog {
+      margin: 0 auto;
+      border-right: 1px solid $border-color;
+    }
+
+    .write_wrapp {
+      display: table;
+      width: 100%;
+      margin: 0 auto;
+
+      .im_textarea {
+        font-family: Lato, sans-serif;
+        font-weight: 300;
+        display: table-cell;
+
+        width: 60%;
+        height: 100px;
+        border: 1px solid $border-color;
+        border-radius: 2px;
+      }
+
+      .button {
+        display: table-cell;
+        vertical-align: bottom;
+        color: #2D78A0;
+        background-color: #F0F0F0;
 
 
-    &:hover {
-      color: #87AA1E;
+        &:hover {
+          color: #87AA1E;
+          transition: all .3s ease-in;
+        }
+      }
     }
   }
 }
