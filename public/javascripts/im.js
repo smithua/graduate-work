@@ -22,6 +22,7 @@ IM = {
         }
     },
     addMessage: function (message) {
+        $('.im_textarea').val('');
         $('.dialog').append('<div id="message_' + message._id + '">' + message.text + '</div>');
     }
 };

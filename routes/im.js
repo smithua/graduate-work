@@ -9,12 +9,12 @@ exports.IM = IM = {
     parentSocket: undefined,
     socket: undefined,
     connectedUsers: {},
-    inDialog: {},
+    inDialog: [],
     init: function (request, response) {
         this.express = {request: request, response: response};
         if (this.express.request.session.authorized ) {
             if (this.express.request.params.id) {
-                this.getDialog(this.express.request.params.id);
+                this.getDialog(request);
             } else {
                 this.buildDialogs();
             }
@@ -50,8 +50,8 @@ exports.IM = IM = {
             }
         });
     },
-    getDialog: function(_id) {
-        dialogsDb.find({_id: dialogsDb.id(_id)}, function(err, int) {
+    getDialog: function(request) {
+        dialogsDb.find({_id: dialogsDb.id(request.params.id)}, function(err, int) {
             if (err) throw err;
             if (int.length) {
                 messagesDb.find({dialog_id: dialogsDb.id(int[0]._id)}, function(err, messages) {
@@ -81,15 +81,42 @@ exports.IM = IM = {
                     error: 'dialog'
                 });
             }
+        });
 
-            //this.express.request.params.id
+        Array.prototype.contains = function(k, callback) {
+            var self = this;
+            return (function check(i) {
+                if (i >= self.length) {
+                    return callback(false);
+                }
+
+                if (self[i] === k) {
+                    return callback(true);
+                }
+
+                return process.nextTick(check.bind(null, i+1));
+            }(0));
+        }
+
+        this.inDialog.contains(request.session._sessionid, function(found) {
+            if (!found) {
+                IM.inDialog.push(request.session._sessionid);
+            }
+        });
+
+        IM.inDialog.forEach(function(row, index) {
+            IM.connectedUsers[row].forEach(function(sock, index) {
+                //IM.parentSocket.socket(sock).emit('events', {fn: 'refreshOnline', message: inst});
+                console.log(sock);
+            });
         });
     },
     addMessage: function(post) {
-        messagesDb.insert({text: post.message, owner: post.user_id, timestamp: new Date().getTime(), dialog_id: dialogsDb.id(post._id)}, function(err, inst) {
+        messagesDb.insert({text: post.message, owner: post.session.user_id, timestamp: new Date().getTime(), dialog_id: dialogsDb.id(post._id)}, function(err, inst) {
             if (err) throw err;
-            IM.socket.handshake.getSession(function(err, session) {
-                IM.connectedUsers[session._sessionid].forEach(function(sock, index) {
+
+            IM.inDialog.forEach(function(row, index) {
+                IM.connectedUsers[row].forEach(function(sock, index) {
                     IM.parentSocket.socket(sock).emit('events', {fn: 'addMessage', message: inst});
                 });
             });

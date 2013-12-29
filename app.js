@@ -103,7 +103,7 @@ io.sockets.on('connection', function (socket) {
     im.IM.setConnection(socket);
     socket.on('events', function(post) {
         socket.handshake.getSession(function(err, session) {
-            post['data']['user_id'] = session.user_id;
+            post['data']['session'] = session;
             im.IM[post.fn](post.data);
         });
     });
@@ -116,6 +116,11 @@ io.sockets.on('connection', function (socket) {
                         im.IM.connectedUsers[session._sessionid].splice(index, 1);
                     }
                 });
+            }
+
+            console.log(im.IM.inDialog);
+            if (im.IM.inDialog[session._sessionid] !== undefined) {
+                delete im.IM.inDialog[session._sessionid];
             }
         });
     });
