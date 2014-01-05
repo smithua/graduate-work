@@ -48,7 +48,7 @@
             <div class="user_list_wrap">
                 <ul class="user_list">
                     <%for (var key in meta_info) {%>
-                        <%if (meta_info[key]['currentUrl'].split('/')[2].length) {%>
+                        <%if (meta_info[key]['currentUrl'].split('/')[2] !== undefined) {%>
                             <%if (dialog._id == meta_info[key]['currentUrl'].split('/')[2]) { %>
                                 <li><%=meta_info[key]['user_name']%></li>
                             <%}%>
@@ -60,7 +60,7 @@
     <% } %>
 
     <%if (error == 'dialogs') { %>
-        <div id="all_dialogs">
+        <div id="all_dialogs" class="all_dialogs">
             <%if (Object.keys(dialogs).length) { %>
                 <%dialogs.forEach(function(dialog) {  %>
                     <div id="dialog_<%=dialog._id%>"><a href="/dialogs/<%=dialog._id%>"><%=new Date(dialog.timestamp * 1000)%></a></div>

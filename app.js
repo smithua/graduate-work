@@ -102,8 +102,8 @@ io.sockets.on('connection', function (socket) {
     im.IM.parentSocket = io.sockets;
     im.IM.setConnection(socket);
     setInterval(function() {
-        
-    }, 1000);
+        io.sockets.socket(socket.id).emit('events', {fn: 'refreshOnline', message: im.IM.userInfo});//console.log(socket.id);
+    }, 2000);
     socket.on('events', function(post) {
         socket.handshake.getSession(function(err, session) {
             post['data']['session'] = session;
