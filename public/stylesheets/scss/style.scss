@@ -2,6 +2,7 @@
 
 /* fonts */
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic);
 
 *, *:after, *:before {
   box-sizing: border-box;
@@ -12,6 +13,26 @@
 
 $body-width: 980px;
 $border-color: #ccc;
+$black-color: #333;
+
+$frst-color: #F0F0F0;
+$scnd-color: #2D78A0;
+$thrd-color: #87AA1E;
+$frth-color: #BED741;
+
+@mixin margin-auto () {
+  margin: 0 auto;
+  position: relative;
+}
+
+@mixin border ($width1, $width2, $width3, $width4) {
+  border-width: $width1 $width2 $width3 $width4;
+  border-style: solid;
+  border-color: #cccccc;
+}
+
+// @include border();
+
 
 body {
   font-family: Helvetica, sans-serif;
@@ -29,6 +50,15 @@ h1 {
   font-family: Lato, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
+
+  position: fixed;
+  top: 0;
+  width: $body-width;
+  z-index: 99;
+  background-color: #d0d0d0;
+  margin: 0; // normalize reset
+  color: $scnd-color;
+  text-align: center;
 }
 
 button {
@@ -41,15 +71,20 @@ textarea {
 }
 
 .wrapper {
-  background-color: #F0F0F0;
+  // background-color: $frst-color;
   margin: 0 auto;
   overflow: hidden;
   width: $body-width;
   display: table;
+  position: relative;
+
+font-family: 'PT Sans', sans-serif;
+
 
 
   .user_list_wrap {
     display: table-cell;
+    @include border (0, 0, 0, 1px);
 
     .user_list {
       list-style-type: none;
@@ -72,6 +107,7 @@ textarea {
       display: table;
       width: 100%;
       margin: 0 auto;
+      padding-top: 40px;
 
       .im_textarea {
         font-family: Lato, sans-serif;
@@ -80,22 +116,83 @@ textarea {
 
         width: 60%;
         height: 100px;
-        border: 1px solid $border-color;
+        @include border(1px, 1px, 1px, 1px);
         border-radius: 2px;
       }
 
       .button {
         display: table-cell;
         vertical-align: bottom;
-        color: #2D78A0;
-        background-color: #F0F0F0;
+        color: $scnd-color;
+        background-color: $frst-color;
 
 
         &:hover {
-          color: #87AA1E;
+          color: $thrd-color;
           transition: all .3s ease-in;
         }
       }
     }
   }
+}
+
+// dialogs view
+
+.site_holder {
+  width: $body-width;
+  @include margin-auto;
+}
+
+.wrap4 {
+  position: relative;
+  width: 700px;
+  padding-top: 80px;
+
+  > div {
+    padding: 0 20px;
+  }
+
+
+  .owner {
+    float: right;
+    text-align: right;
+    width: 700px;
+    margin: 7px 0 0 0;
+
+    &:last-child {
+      margin-bottom: 5px;
+    }
+
+    .message_owner {
+      color: $frth-color;
+    }
+
+    .message_text {
+      border-radius: 10px;
+      padding: 4px 6px 3px;
+      background-color: $frth-color;
+    }
+  }
+
+  .interlocutor {
+    float: left;
+    text-align: left;
+    width: 700px;
+    margin: 7px 0 0 0;
+
+    &:last-child {
+      margin-bottom: 5px;
+    }
+
+    .message_owner {
+      color: $border-color;
+    }
+
+    .message_text {
+      border-radius: 10px;
+      padding: 4px 6px 3px;
+      background-color: $border-color;
+    }
+  }
+
 }
