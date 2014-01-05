@@ -4,6 +4,15 @@ IM = {
     connect: function() {
         this.socket = Node.socket;
         this.listenEvents();
+
+        $('#im_textarea').off('keydown');
+        $('#im_textarea').keydown(function (e)
+        {
+            if (e.ctrlKey && e.keyCode == 13)
+            {
+                IM.send($(e.currentTarget), true);
+            }
+        });
     },
     listenEvents: function() {
         this.socket.on('events', function(data) {
@@ -12,8 +21,9 @@ IM = {
             }
         });
     },
-    send: function(el) {
-        var val_message = $(el).prev().val();
+    send: function(el, prev) {
+
+        var val_message = (prev) ? $(el).val() : $(el).prev().val();
         var dialogId = window.location.pathname.split('/')[2];
         if (!_IM.hasWhiteSpaceOnly(val_message)) {
             this.socket.emit('events', {fn: 'addMessage', data: {message: val_message, _id: dialogId}});
