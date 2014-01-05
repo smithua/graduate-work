@@ -40,6 +40,7 @@ exports.processPost = function(request, response) {
             createNewUser({user_name: request.body.login, password: request.body.password}, function (inserted) {
                 request.session.authorized = true;
                 request.session.username = inserted.user_name;
+                request.session.user_id = inserted._id;
                 response.redirect('/dialogs');
                 response.end();
             });

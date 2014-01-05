@@ -2,7 +2,8 @@
 <html>
 <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/css/style.css' />
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 </head>
 <body>
     <h1><%= title %></h1>
@@ -20,22 +21,47 @@
     <% } %>
 
     <%if (error == 'dialog') { %>
-        <div id="dialog" data-dialog="<%=dialog._id%>">
-            <div class="wrap3">
-                <%if (messages.length) { %>
-
-                <% } %>
+        <div class="wrapper">
+            <div class="dialog_wrap">
+                <div id="dialog" class="dialog" data-dialog="<%=dialog._id%>">
+                    <div class="wrap3">
+                        <div class="wrap4">
+                            <%if (messages) { %>
+                                <%messages.forEach(function(message) {  %>
+                                    <div class="<%if(message.user.user_name == user_name) {%>owner<%}%><%if(message.user.user_name != user_name) {%>interlocutor<%}%>" id="message_<%=message._id%>">
+                                        <span class="message_owner" style="color: orangered;"><%=message.user.user_name%></span>
+                                        <span class="message_text"><%=message.text%></span>
+                                    </div>
+                                <% }); %>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div id="write_wrapp" class="write_wrapp">
+                    <input type="hidden" id="user_name" value="<%=user_name%>" />
+                    <textarea id="im_textarea" placeholder="Сообщение" class="im_textarea"></textarea>
+                    <button class="button" onclick="IM.send(this);">Отправить</button>
+                </div>
+            </div>
+            <div class="user_list_wrap">
+                <ul class="user_list"></ul>
             </div>
         </div>
-        <div id="write_wrapp">
-            <textarea id="im_textarea" class="im_textarea"></textarea>
-            <button class="button" onclick="IM.send(this);">Отправить</button>
+    <% } %>
+
+    <%if (error == 'dialogs') { %>
+        <div id="all_dialogs">
+            <%if (Object.keys(dialogs).length) { %>
+                <%dialogs.forEach(function(dialog) {  %>
+                    <div id="dialog_<%=dialog._id%>"><a href="/dialogs/<%=dialog._id%>"><%=new Date(dialog.timestamp * 1000)%></a></div>
+                <% }); %>
+            <% } %>
+            <p>Please, <a href="/dialogs/new">create new dialog</a>.</p>
         </div>
     <% } %>
 </body>
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="http://<%=io%>:3001/socket.io/socket.io.js"></script>
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
 <script src="/javascripts/node.js"></script>
 <script src="/javascripts/im.js"></script>
-<script>Node.init('<%=io%>'); IM.connect();</script>
+<script>Node.init('http://localhost'); IM.connect();</script>
 </html>
