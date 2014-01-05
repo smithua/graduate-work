@@ -181,6 +181,8 @@ textarea {
 
     .message_owner {
       color: $frth-color;
+      word-wrap: break-word;
+      max-width: 250px;
     }
 
     .message_text {
@@ -188,6 +190,8 @@ textarea {
       border-radius: 10px;
       padding: 4px 6px 3px;
       background-color: $frth-color;
+      word-break: break-word;
+      max-width: 350px;
     }
   }
 
@@ -206,6 +210,8 @@ textarea {
       color: $border-color;
       float: left;
       padding-top: 4px;
+      word-wrap: break-word;
+      max-width: 250px;
     }
 
     .message_text {
@@ -213,6 +219,8 @@ textarea {
       border-radius: 10px;
       padding: 4px 6px 3px;
       background-color: $border-color;
+      word-break: break-word;
+      max-width: 350px;
     }
   }
 
