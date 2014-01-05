@@ -27,7 +27,7 @@
             <div class="dialog_wrap">
                 <div id="dialog" class="dialog" data-dialog="<%=dialog._id%>">
                     <div class="wrap3">
-                        <div class="wrap4">
+                        <div class="wrap4 cf">
                             <%if (messages) { %>
                                 <%messages.forEach(function(message) {  %>
                                     <div class="<%if(message.user.user_name == user_name) {%>owner<%}%><%if(message.user.user_name != user_name) {%>interlocutor<%}%>" id="message_<%=message._id%>">
