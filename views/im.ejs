@@ -50,7 +50,7 @@
                     <%for (var key in meta_info) {%>
                         <%if (meta_info[key]['currentUrl'].split('/')[2].length) {%>
                             <%if (dialog._id == meta_info[key]['currentUrl'].split('/')[2]) { %>
-                                <%=meta_info[key]['user_name']%>
+                                <li><%=meta_info[key]['user_name']%></li>
                             <%}%>
                         <%}%>
                     <%}%>
