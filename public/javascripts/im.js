@@ -28,7 +28,7 @@ IM = {
                 '<span class="message_owner" style="color: orangered;">' + data.sender.user_name + '</span>' +
                 '<span class="message_text">' + data.inst.text + '</span>' +
                 '</div>';
-            $('.dialog').append(html);
+            $('#dialog .wrap3 .wrap4').append(html);
         }
     },
     refreshOnline: function(data) {
