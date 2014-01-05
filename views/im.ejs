@@ -31,7 +31,7 @@
                             <%if (messages) { %>
                                 <%messages.forEach(function(message) {  %>
                                     <div class="<%if(message.user.user_name == user_name) {%>owner<%}%><%if(message.user.user_name != user_name) {%>interlocutor<%}%>" id="message_<%=message._id%>">
-                                        <span class="message_owner" style="color: orangered;"><%=message.user.user_name%></span>
+                                        <span class="message_owner"><%=message.user.user_name%></span>
                                         <span class="message_text"><%=message.text%></span>
                                     </div>
                                 <% }); %>
@@ -46,7 +46,15 @@
                 </div>
             </div>
             <div class="user_list_wrap">
-                <ul class="user_list"></ul>
+                <ul class="user_list">
+                    <%for (var key in meta_info) {%>
+                        <%if (meta_info[key]['currentUrl'].split('/')[2].length) {%>
+                            <%if (dialog._id == meta_info[key]['currentUrl'].split('/')[2]) { %>
+                                <%=meta_info[key]['user_name']%>
+                            <%}%>
+                        <%}%>
+                    <%}%>
+                </ul>
             </div>
         </div>
     <% } %>

@@ -17,7 +17,8 @@ exports.IM = IM = {
         if (this.express.request.session.authorized ) {
             this.userInfo[request.session._sessionid] = {
                 user_name: request.session.username,
-                user_id: request.session.user_id
+                user_id: request.session.user_id,
+                currentUrl: request.originalUrl
             };
 
             if (this.express.request.params.id) {
@@ -58,6 +59,7 @@ exports.IM = IM = {
         });
     },
     getDialog: function(request) {
+
         Array.prototype.contains = function(k, callback) {
             var self = this;
             return (function check(i) {
@@ -107,7 +109,8 @@ exports.IM = IM = {
                                 error: 'dialog',
                                 dialog: int[0],
                                 messages: rows,
-                                user_name: request.session.username
+                                user_name: request.session.username,
+                                meta_info: IM.userInfo
                             });
                         });
                     } else {
@@ -117,7 +120,8 @@ exports.IM = IM = {
                             error: 'dialog',
                             dialog: int[0],
                             messages: 0,
-                            user_name: request.session.username
+                            user_name: request.session.username,
+                            meta_info: IM.userInfo
                         });
                     }
                 });
