@@ -22,12 +22,14 @@ IM = {
         }
     },
     addMessage: function (data) {
-        $('.im_textarea').val('');
-        var html = '<div class="' + (data.sender.user_name == $('#user_name').val() ? 'owner' : 'interlocutor') + '" id="message_' + data.inst._id + '">' +
-                        '<span class="message_owner" style="color: orangered;">' + data.sender.user_name + '</span>' +
-                        '<span class="message_text">' + data.inst.text + '</span>' +
-                    '</div>';
-        $('.dialog').append(html);
+        if (window.location.pathname.split('/')[2] == data.inst.dialog_id) {
+            $('.im_textarea').val('');
+            var html = '<div class="' + (data.sender.user_name == $('#user_name').val() ? 'owner' : 'interlocutor') + '" id="message_' + data.inst._id + '">' +
+                '<span class="message_owner" style="color: orangered;">' + data.sender.user_name + '</span>' +
+                '<span class="message_text">' + data.inst.text + '</span>' +
+                '</div>';
+            $('.dialog').append(html);
+        }
     },
     refreshOnline: function(data) {
         if (!$('#user_' + data.user_id).length) {
