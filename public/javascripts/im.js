@@ -22,13 +22,17 @@ IM = {
         }
     },
     addMessage: function (data) {
+
         if (window.location.pathname.split('/')[2] == data.inst.dialog_id) {
+            var date = new Date(data.inst.timestamp);
             $('.im_textarea').val('');
             var html = '<div class="' + (data.sender.user_name == $('#user_name').val() ? 'owner' : 'interlocutor') + '" id="message_' + data.inst._id + '">' +
                 '<span class="message_owner">' + data.sender.user_name + '</span>' +
                 '<span class="message_text">' + data.inst.text + '</span>' +
+                '<span class="message_time">' + date.getHours() + ':' + date.getMinutes() + '</span>' +
                 '</div>';
-            $('#dialog .wrap3 .wrap4').append(html);
+            $('#dialog .wrap3 .wrap4').append(html)
+            $("html, body").animate({ scrollTop: $(document).height() }, 100);
         }
     },
     refreshOnline: function(data) {

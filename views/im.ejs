@@ -33,6 +33,7 @@
                                     <div class="<%if(message.user.user_name == user_name) {%>owner<%}%><%if(message.user.user_name != user_name) {%>interlocutor<%}%>" id="message_<%=message._id%>">
                                         <span class="message_owner"><%=message.user.user_name%></span>
                                         <span class="message_text"><%=message.text%></span>
+                                        <span class="message_time"><%=(new Date(message.timestamp)).getHours()%>:<%=(new Date(message.timestamp)).getMinutes()%></span>
                                     </div>
                                 <% }); %>
                             <% } %>
