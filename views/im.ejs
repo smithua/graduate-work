@@ -6,6 +6,8 @@
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 </head>
 <body>
+
+<div class="site_holder">
     <h1><%= title %></h1>
 
     <%if (error == 'dialogs_not_found') { %>
@@ -59,6 +61,8 @@
             <p>Please, <a href="/dialogs/new">create new dialog</a>.</p>
         </div>
     <% } %>
+</div>
+
 </body>
 <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 <script src="/javascripts/node.js"></script>
