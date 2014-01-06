@@ -34,11 +34,21 @@ $frth-color: #BED741;
   border-color: #cccccc;
 }
 
+@mixin bg_image () {
+  background: url(http://rewalls.com/pic/201309/1920x1080/reWalls.com-75517.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+@mixin header_fixed () {
+  width: inherit;
+  margin: 0;
+  position: fixed;
+}
+
 // @include border();
 
 html {
-  background: url(http://rewalls.com/pic/201309/1920x1080/reWalls.com-75517.jpg) no-repeat center center fixed;
-  background-size: cover;
+  @include bg_image;
 }
 
 body {
@@ -53,21 +63,22 @@ a {
   text-decoration: none;
 }
 
+.header_bg {
+  height: 50px;
+  @include header_fixed;
+  background-color: rgba(208,208,208,.4);
+  border-radius: 0 0 10px 10px;
+  z-index: 194;
+}
+
 h1 {
   font-family: Lato, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
-
-  position: fixed;
-  top: 0;
-  width: $body-width;
-  z-index: 99;
-  background-color: rgba(208,208,208,0.4);
-  margin: 0; // normalize reset
   color: $scnd-color;
   text-align: center;
-  // filter: blur(1px);
-  border-radius: 0 0 10px 10px;
+  z-index: 195;
+  @include header_fixed;
 }
 
 button {
@@ -175,30 +186,22 @@ textarea {
     padding: 0 20px;
   }
 
-  .owner {
-    float: right;
-    text-align: right;
+  .owner, .interlocutor  {
     width: inherit;
     margin: 7px 0 0 0;
 
-    > span {
-      display: inline-block;
-      padding-top: 6px;
-    }
-
     .message_owner {
-      color: $thrd-color;
+      display: inline-block;
       word-wrap: break-word;
       max-width: 250px;
       margin-right: 5px;
+      padding-top: 6px;
     }
 
     .message_text_wrap {
-      float: right;
       display: table;
       border-radius: 10px;
       padding: 6px 8px 5px;
-      background-color: $frth-color;
       max-width: 350px;
 
       .message_text {
@@ -207,11 +210,29 @@ textarea {
       }
 
       .message_time {
-        color: $thrd-color;
         font-size: 10px;
         position: relative;
         top: 2px;
+        padding-left: 5px;
         display: table-cell;
+      }
+    }
+  }
+
+  .owner {
+    float: right;
+    text-align: right;
+
+    .message_owner {
+      color: $thrd-color;
+    }
+
+    .message_text_wrap {
+      background-color: $frth-color;
+      float: right;
+
+      .message_time {
+        color: $thrd-color;
       }
     }
   }
@@ -219,34 +240,17 @@ textarea {
   .interlocutor {
     float: left;
     text-align: left;
-    width: inherit;
-    margin: 7px 0 0 0;
 
     .message_owner {
       color: #999;
       float: left;
-      padding-top: 6px;
-      word-wrap: break-word;
-      max-width: 250px;
-      margin-right: 5px;
     }
 
     .message_text_wrap {
-      display: inline-block;
-      border-radius: 10px;
-      padding: 6px 8px 5px;
       background-color: #e3e3e3;
-      max-width: 350px;
-
-      .message_text {
-        word-break: break-word;
-      }
 
       .message_time {
         color: #999;
-        font-size: 10px;
-        position: relative;
-        top: 2px;
       }
     }
   }

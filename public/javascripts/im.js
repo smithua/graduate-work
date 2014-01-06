@@ -38,11 +38,10 @@ IM = {
             $('.im_textarea').val('');
             var html = '<div class="' + (data.sender.user_name == $('#user_name').val() ? 'owner' : 'interlocutor') + '" id="message_' + data.inst._id + '">' +
                 '<span class="message_owner">' + data.sender.user_name + '</span>' +
-                '<span class="message_text_wrap cf">' +
+                '<span class="message_text_wrap">' +
                     '<span class="message_text">' + data.inst.text + '</span>' +
                     '<span class="message_time">' + date.getHours() + ':' + date.getMinutes() + '</span>' +
-                '</span>' +
-                '</div>';
+                '</span></div>';
             $('#dialog .wrap3 .wrap4').append(html)
             $("html, body").animate({ scrollTop: $(document).height() }, 100);
         }
