@@ -65,6 +65,10 @@ a {
   }
 }
 
+.error_msg {
+  color: #ff0000;
+}
+
 .header_bg {
   height: 50px;
   @include header_fixed;

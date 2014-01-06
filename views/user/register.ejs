@@ -10,11 +10,11 @@
         <h1><%= title %></h1>
         <div class="p_top80 register_wrap">
             <%if (sendFromLogin) { %>
-                <p>Error login!</p>
+                <p class="error_msg">Аккаунт с таким именем уже существует!</p>
             <% } %>
             <form method="post">
-                <input type="text" placeholder="login" name="login" />
-                <input type="password" placeholder="password" name="password" />
+                <input type="text" placeholder="Логин" name="login" />
+                <input type="password" placeholder="Пароль" name="password" />
                 <input type="submit" value="<%= title %>" />
             </form>
         </div>
