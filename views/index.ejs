@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/css/style.css' />
-  </head>
-  <body>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/css/style.css' />
+</head>
+
+<body>
+  <div class="site_holder">
+    <div class="header_bg"></div>
     <h1><%= title %></h1>
-    <%if (user_name !== undefined) { %>
-        <p>Hello, <%= user_name %>!</p>
-        <a href="/dialogs">Dialogs</a>
-    <% } else { %>
-        <a href="/users/login">Login</a>
-        <a href="/users/register">Register</a>
-    <% } %>
-  </body>
+    <div class="p_top80 home_wrap">
+      <%if (user_name !== undefined) { %>
+          <p>Hello, <%= user_name %>!</p>
+          <a href="/dialogs">Dialogs</a>
+      <% } else { %>
+          <a href="/users/login">Login</a>
+          <a href="/users/register">Register</a>
+      <% } %>
+    </div>
+  </div>
+</body>
 </html>

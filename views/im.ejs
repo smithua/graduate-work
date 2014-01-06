@@ -65,7 +65,7 @@
     <% } %>
 
     <%if (error == 'dialogs') { %>
-        <div id="all_dialogs" class="all_dialogs">
+        <div id="all_dialogs" class="p_top80 all_dialogs">
             <%if (Object.keys(dialogs).length) { %>
                 <%dialogs.forEach(function(dialog) {  %>
                     <div id="dialog_<%=dialog._id%>"><a href="/dialogs/<%=dialog._id%>"><%=new Date(dialog.timestamp * 1000)%></a></div>

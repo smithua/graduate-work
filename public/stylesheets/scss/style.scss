@@ -59,6 +59,10 @@ body {
 a {
   color: #00B7FF;
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .header_bg {
@@ -94,7 +98,7 @@ textarea {
   outline: none;
 }
 
-.all_dialogs {
+.p_top80 {
   padding-top: 80px;
 }
 

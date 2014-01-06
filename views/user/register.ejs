@@ -5,14 +5,19 @@
     <link rel='stylesheet' href='/stylesheets/css/style.css' />
 </head>
 <body>
-    <h1><%= title %></h1>
-    <%if (sendFromLogin) { %>
-        <p>Error login!</p>
-    <% } %>
-    <form method="post">
-        <input type="text" placeholder="login" name="login" />
-        <input type="password" placeholder="password" name="password" />
-        <input type="submit" value="<%= title %>" />
-    </form>
+    <div class="site_holder">
+        <div class="header_bg"></div>
+        <h1><%= title %></h1>
+        <div class="p_top80 register_wrap">
+            <%if (sendFromLogin) { %>
+                <p>Error login!</p>
+            <% } %>
+            <form method="post">
+                <input type="text" placeholder="login" name="login" />
+                <input type="password" placeholder="password" name="password" />
+                <input type="submit" value="<%= title %>" />
+            </form>
+        </div>
+    </div>
 </body>
 </html>
