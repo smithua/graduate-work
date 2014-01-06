@@ -36,6 +36,10 @@ $frth-color: #BED741;
 
 // @include border();
 
+html {
+  background: url(http://rewalls.com/pic/201309/1920x1080/reWalls.com-75517.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
 
 body {
   font-family: Helvetica, sans-serif;
@@ -89,8 +93,6 @@ textarea {
 
   font-family: 'PT Sans', sans-serif;
 
-
-
   .user_list_wrap {
     display: table-cell;
     position: fixed;
@@ -109,7 +111,7 @@ textarea {
 
   .dialog_wrap {
     display: table-cell;
-    width: 700px;
+    width: 750px;
     vertical-align: bottom;
 
     .dialog {
@@ -118,17 +120,19 @@ textarea {
 
     .write_wrapp {
       display: table;
-      width: 100%;
+      width: inherit;
       margin: 0 auto;
       position: fixed;
       bottom: 0;
+      background: rgba(208,208,208,.4);
+      padding: 10px;
 
       .im_textarea {
         font-family: Lato, sans-serif;
         font-weight: 300;
         display: table-cell;
 
-        width: 60%;
+        width: (100% - 15%);
         height: 50px;
         @include border(1px, 1px, 1px, 1px);
         padding: 1px 0px 2px 10px;
@@ -137,11 +141,14 @@ textarea {
       }
 
       .button {
+        float: right;
+        text-align: right;
         display: table-cell;
         vertical-align: bottom;
         color: $scnd-color;
-        background-color: $frst-color;
-
+        background-color: #fff;
+        margin: 12px 5px 0 0;
+        border-radius: 10px;
 
         &:hover {
           color: $thrd-color;
@@ -161,72 +168,86 @@ textarea {
 
 .wrap4 {
   position: relative;
-  width: 700px;
-  padding: 80px 0 140px;
+  width: 100%;
+  padding: 57px 0 90px;
 
   > div {
     padding: 0 20px;
   }
 
-
   .owner {
     float: right;
     text-align: right;
-    width: 700px;
+    width: inherit;
     margin: 7px 0 0 0;
-
-    // &:last-child {
-    //   margin-bottom: 5px;
-    // }
 
     > span {
       display: inline-block;
-      vertical-align: sub;
+      padding-top: 6px;
     }
 
     .message_owner {
-      color: $frth-color;
+      color: $thrd-color;
       word-wrap: break-word;
       max-width: 250px;
+      margin-right: 5px;
     }
 
-    .message_text {
+    .message_text_wrap {
       float: right;
+      display: table;
       border-radius: 10px;
-      padding: 4px 6px 3px;
+      padding: 6px 8px 5px;
       background-color: $frth-color;
-      word-break: break-word;
       max-width: 350px;
+
+      .message_text {
+        word-break: break-word;
+        display: table-cell;
+      }
+
+      .message_time {
+        color: $thrd-color;
+        font-size: 10px;
+        position: relative;
+        top: 2px;
+        display: table-cell;
+      }
     }
   }
 
   .interlocutor {
     float: left;
     text-align: left;
-    width: 700px;
+    width: inherit;
     margin: 7px 0 0 0;
 
-    // &:last-child {
-    //   margin-bottom: 5px;
-    // }
-
-
     .message_owner {
-      color: $border-color;
+      color: #999;
       float: left;
-      padding-top: 4px;
+      padding-top: 6px;
       word-wrap: break-word;
       max-width: 250px;
+      margin-right: 5px;
     }
 
-    .message_text {
+    .message_text_wrap {
       display: inline-block;
       border-radius: 10px;
-      padding: 4px 6px 3px;
-      background-color: $border-color;
-      word-break: break-word;
+      padding: 6px 8px 5px;
+      background-color: #e3e3e3;
       max-width: 350px;
+
+      .message_text {
+        word-break: break-word;
+      }
+
+      .message_time {
+        color: #999;
+        font-size: 10px;
+        position: relative;
+        top: 2px;
+      }
     }
   }
-
 }
