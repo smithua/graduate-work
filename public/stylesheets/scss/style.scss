@@ -45,8 +45,6 @@ $frth-color: #BED741;
   position: fixed;
 }
 
-// @include border();
-
 html {
   @include bg_image;
 }
@@ -79,6 +77,12 @@ h1 {
   text-align: center;
   z-index: 195;
   @include header_fixed;
+  transition: all .4s ease-out;
+
+  &:hover {
+    color: $frst-color;
+    transition: all .4s ease;
+  }
 }
 
 button {
@@ -95,7 +99,6 @@ textarea {
 }
 
 .wrapper {
-  // background-color: $frst-color;
   margin: 0 auto;
   overflow: hidden;
   width: $body-width;
@@ -108,7 +111,8 @@ textarea {
     display: table-cell;
     position: fixed;
     top: 100px;
-    // @include border (0, 0, 0, 1px);
+    color: $frst-color;
+    text-shadow: 2px 2px 2px #333;
 
     .user_list {
       list-style-type: none;
@@ -162,8 +166,10 @@ textarea {
         border-radius: 10px;
 
         &:hover {
-          color: $thrd-color;
-          transition: all .3s ease-in;
+          background-color: $scnd-color;
+          color: #fff;
+          //color: $thrd-color;
+          transition: all .1s ease-in;
         }
       }
     }
