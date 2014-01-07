@@ -160,9 +160,37 @@ exports.buildsDialogs = function(request, response) {
 };
 
 exports.createNew = function(request, response) {
-    dialogsDb.insert({timestamp: new Date().getTime()}, function (err, dialog) {
-        if (err) throw err;
-        response.redirect('/dialogs/' + dialog._id);
+    if (request.session.authorized) {
+        dialogsDb.insert({timestamp: new Date().getTime()}, function (err, dialog) {
+            if (err) throw err;
+            response.redirect('/dialogs/' + dialog._id);
+            response.end();
+        });
+    } else {
+        response.redirect('/users/login');
         response.end();
-    });
+    }
+};
+
+exports.removeAll = function(request, response) {
+    if (request.session.authorized) {
+        dialogsDb.remove({}, function(err, i) {
+            if (err) throw err;
+            if (i) {
+                messagesDb.remove({}, function(err, m) {
+                    if (err) throw err;
+                    if (m) {
+                        response.redirect('/dialogs');
+                        response.end();
+                    }
+                });
+            } else {
+                response.redirect('/dialogs');
+                response.end();
+            }
+        });
+    } else {
+        response.redirect('/users/login');
+        response.end();
+    }
 };

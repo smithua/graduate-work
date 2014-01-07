@@ -48,7 +48,7 @@ IM = {
     },
     refreshOnline: function(data) {
         var online = [];
-        if (window.location.pathname.split('/')[2].length) {
+        if (window.location.pathname.split('/')[2] !== undefined) {
             for (key in data) {
                 if (data[key]['currentUrl'].split('/')[2] !== undefined) {
                     if (data[key]['currentUrl'].split('/')[2] == window.location.pathname.split('/')[2]) {
