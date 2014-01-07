@@ -52,6 +52,7 @@ app.post('/users/register', users.register.processPost);
 app.get('/dialogs', im.buildsDialogs);
 app.get('/dialogs/new', im.createNew);
 app.get('/dialogs/:id', im.buildsDialogs);
+app.get('/logout', users.userAuth.logOut);
 
 var server = http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

@@ -32,4 +32,13 @@ exports.processPost = function(request, response) {
     });
 };
 
+exports.logOut = function(request, response) {
+    request.session.authorized = false;
+    delete request.session.username;
+    delete request.session.user_id;
+
+    response.redirect('/');
+    response.end();
+};
+
 exports.login = login;
