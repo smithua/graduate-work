@@ -35,7 +35,7 @@ $frth-color: #BED741;
 }
 
 @mixin bg_image () {
-  background: url(http://rewalls.com/pic/201309/1920x1080/reWalls.com-75517.jpg) no-repeat center center fixed;
+  background: url(/images/bg-image.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -81,7 +81,8 @@ h1 {
   font-family: Lato, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
-  color: $scnd-color;
+  // color: $scnd-color;
+  color: #87AA1E;
   text-align: center;
   z-index: 195;
   @include header_fixed;
