@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%= title %></title>
+    <title>Диалоги</title>
     <link rel='stylesheet' href='/stylesheets/css/style.css' />
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 </head>
 <body>
 
 <div class="site_holder">
-    <div class="header_bg"></div>
-    <h1><%= title %></h1>
+    <div class="header_bg">
+        <a href="/dialogs" class="go-back-link">назад</a>
+        <h1>Диалоги</h1>
+        <a href="/logout" class="logout-link">выйти</a>
+    </div>
 
     <%if (error == 'dialogs_not_found') { %>
-        <p>Dialogs not found.</p>
-        <p>Please, <a href="/dialogs/new">create new dialog</a>.</p>
-        <p><a href="/clear">Clear all dialogs</a></p>
+        <div class="p_top80">
+            <div class="empty-dialogs-list">
+                <!-- <p>Список диалогов пуст</p> -->
+                <p><a href="/dialogs/new">Создать новый</a></p>
+                <p><a href="/clear">Очистить список диалогов</a></p>
+            </div>
+        </div>
     <% } %>
     <% if (error == 'int_not_found') { %>
         <p>Interlocutor is not found.</p>
@@ -67,13 +74,15 @@
 
     <%if (error == 'dialogs') { %>
         <div id="all_dialogs" class="p_top80 all_dialogs">
-            <%if (Object.keys(dialogs).length) { %>
-                <%dialogs.forEach(function(dialog) {  %>
-                    <div id="dialog_<%=dialog._id%>"><a href="/dialogs/<%=dialog._id%>"><%=new Date(dialog.timestamp * 1000)%></a></div>
-                <% }); %>
-            <% } %>
-            <p>Please, <a href="/dialogs/new">create new dialog</a>.</p>
-            <p><a href="/clear">Clear all dialogs</a></p>
+            <div class="empty-dialogs-list">
+                <%if (Object.keys(dialogs).length) { %>
+                    <%dialogs.forEach(function(dialog) {  %>
+                        <p id="dialog_<%=dialog._id%>"><a href="/dialogs/<%=dialog._id%>"><%=new Date(dialog.timestamp * 1000)%></a></p>
+                    <% }); %>
+                <% } %>
+                <p><a href="/dialogs/new">Создать новый диалог</a></p>
+                <p><a href="/clear">Очистить список диалогов</a></p>
+            </div>
         </div>
     <% } %>
 </div>

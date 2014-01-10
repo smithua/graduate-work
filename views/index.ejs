@@ -8,15 +8,16 @@
 
 <body>
   <div class="site_holder">
-    <div class="header_bg"></div>
-    <h1><%= title %></h1>
+    <div class="header_bg">
+      <h1><%= title %></h1>
+    </div>
     <div class="p_top80 home_wrap">
       <%if (user_name !== undefined) { %>
-          <p>Hello, <%= user_name %>!</p>
+          <p>Приветствуем, <%= user_name %>!</p>
           <a href="/dialogs">Dialogs</a>
       <% } else { %>
-          <a href="/users/login">Login</a>
-          <a href="/users/register">Register</a>
+          <span class=""><a class="login" href="/users/login">Логин</a></span>
+          <span class=""><a class="register" href="/users/register">Регестрация</a></span>
       <% } %>
     </div>
   </div>

@@ -50,10 +50,10 @@ html {
 }
 
 body {
-  font-family: Helvetica, sans-serif;
-  font-size: 16px;
+  font: 1.2em/1.5em "Open Sans", Helvetica, sans-serif;
   color: #333;
   line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -70,7 +70,7 @@ a {
 }
 
 .header_bg {
-  height: 50px;
+  height: 60px;
   @include header_fixed;
   background-color: rgba(208,208,208,.4);
   border-radius: 0 0 10px 10px;
@@ -81,11 +81,9 @@ h1 {
   font-family: Lato, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
-  // color: $scnd-color;
   color: #87AA1E;
   text-align: center;
   z-index: 195;
-  @include header_fixed;
   transition: all .4s ease-out;
 
   &:hover {
@@ -98,13 +96,18 @@ button {
   border: 0;
 }
 
+p {
+  margin: 0;
+}
+
 textarea {
   resize: none;
   outline: none;
 }
 
 .p_top80 {
-  padding-top: 80px;
+  padding-top: 180px;
+  text-align: center;
 }
 
 .wrapper {
@@ -114,13 +117,13 @@ textarea {
   display: table;
   position: relative;
 
-  font-family: 'PT Sans', sans-serif;
-
   .user_list_wrap {
     display: table-cell;
     position: fixed;
     top: 100px;
-    color: $frst-color;
+    color: #f4f4f4;
+    font-family: "Open Sans";
+    font-weight: 600;
     text-shadow: 2px 2px 2px #333;
 
     .user_list {
@@ -173,6 +176,7 @@ textarea {
         background-color: #fff;
         margin: 12px 5px 0 0;
         border-radius: 10px;
+        font-size: 16px;
 
         &:hover {
           background-color: $scnd-color;
@@ -205,7 +209,15 @@ textarea {
     width: inherit;
     margin: 7px 0 0 0;
 
+    // &:last-child {
+    //   .message_text_wrap,.message_owner {
+    //     transition: 1s opacity ease-in;
+    //   }
+    // }
+
     .message_owner {
+      font-family: "Open Sans";
+      font-weight: 600;
       display: inline-block;
       word-wrap: break-word;
       max-width: 250px;
@@ -215,6 +227,7 @@ textarea {
 
     .message_text_wrap {
       display: table;
+      text-align: left;
       border-radius: 10px;
       padding: 6px 8px 5px;
       max-width: 350px;
@@ -230,6 +243,7 @@ textarea {
         top: 2px;
         padding-left: 5px;
         display: table-cell;
+        vertical-align: bottom;
       }
     }
   }
@@ -247,7 +261,7 @@ textarea {
       float: right;
 
       .message_time {
-        color: $thrd-color;
+        color: #5D7513;
       }
     }
   }
@@ -257,12 +271,12 @@ textarea {
     text-align: left;
 
     .message_owner {
-      color: #999;
+      color: #f4f4f4;
       float: left;
     }
 
     .message_text_wrap {
-      background-color: #e3e3e3;
+      background-color: #f8f8f8;
 
       .message_time {
         color: #999;
@@ -270,3 +284,108 @@ textarea {
     }
   }
 }
+
+.go-back-link {
+  z-index: 200;
+  position: absolute;
+  top: 12px;
+  left: 30px;
+  text-transform: lowercase;
+}
+
+.logout-link {
+  z-index: 200;
+  position: absolute;
+  top: 12px;
+  right: 30px;
+}
+
+.home_wrap {
+
+  .login, .register {
+    padding: 10px 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    transition: .6s background-color ease, .4s color ease;
+
+    &:hover {
+      color: #f8f8f8;
+      background-color: $frth-color;
+      transition: .2s background-color ease-in, .2s color ease-in;
+    }
+  }
+
+  .login {
+    margin-right: 50px;
+  }
+
+  .register {
+
+  }
+}
+
+.login_wrap,.register_wrap {
+
+  > form div {
+    margin-bottom: 20px;
+  }
+
+  .login, .password {
+    padding: 5px 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    @include border (1px, 1px, 1px, 1px);
+    transition: .6s background-color ease, .4s color ease;
+
+    &:hover {
+      background-color: #f8f8f8;
+      transition: .4s background-color ease-in;
+    }
+  }
+
+  .button {
+    border: 0;
+    background-color: $frth-color;
+    padding: 5px 15px;
+    border-radius: 10px;
+    transition: .6s background-color ease-out, .8s color ease-out;
+
+    &:hover {
+      color: #f8f8f8;
+      background-color: $frth-color;
+      transition: .3s background-color ease-in, .2s color ease-in;
+    }
+  }
+}
+
+.empty-dialogs-list {
+  margin: 0 auto;
+  border-radius: 10px;
+  width: 60%;
+  background-color: rgba(102,102,102,.7);
+
+  > p {
+    padding: 20px;
+
+    // &:first-child {
+    //   padding-top: 20px;
+    //   color: #f8f8f8;
+    //   font-weight: bold;
+    // }
+  }
+}
+
+
+
+
+
+
+
+
+

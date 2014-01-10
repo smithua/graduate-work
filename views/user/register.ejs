@@ -6,16 +6,23 @@
 </head>
 <body>
     <div class="site_holder">
-        <div class="header_bg"></div>
-        <h1><%= title %></h1>
+        <div class="header_bg">
+            <h1>Регистрация</h1>
+        </div>
         <div class="p_top80 register_wrap">
             <%if (sendFromLogin) { %>
                 <p class="error_msg">Аккаунт с таким именем уже существует!</p>
             <% } %>
             <form method="post">
-                <input type="text" placeholder="Логин" name="login" />
-                <input type="password" placeholder="Пароль" name="password" />
-                <input type="submit" value="<%= title %>" />
+                <div class="">
+                    <input type="text" class="login" placeholder="Логин" name="login" />
+                </div>
+                <div class="">
+                    <input type="password" class="password" placeholder="Пароль" name="password" />
+                </div>
+                <div class="">
+                    <input type="submit" class="button" value="Зарегистрироваться" />
+                </div>
             </form>
         </div>
     </div>
